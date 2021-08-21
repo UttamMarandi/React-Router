@@ -26,16 +26,17 @@ function App() {
     <Route path= "/" component = {Home} exact/>
     <Route path = "/about" component={About}/>
     {/* useHistory */}
-      {/* <Route path ="/profile"/> */}
-      {/* Instead of passing the component in component prop we can also pass it between Route tags */}
-      {/* <Profile login = {login}/> */}
-      {/* login is the prop , {login is value} */}
-     {/* <Route/> */}
+    {/* Instead of passing the component in component prop we can also pass it between Route tags */}
+     {/* login is the prop , {login is value} */}
+    <Route path ="/profile" component = {Profile}/>
+  
     {/* match */}
+    {/* <Route path = "/profile" component={Profile}/> */}
     <Route path ="/post/:id"component = {Post}/>
-    {/* useParams, Redirect */}
-    <Route path = "/people"> { login ? <People/>: <Redirect to ="/" />}</Route>
 
+    {/* useParams, Redirect */}
+    {/* <Route path = "/people"> { login ? <People/>: <Redirect to ="/" />}</Route> */}
+    <Route path ="/people"component = {People}/>
     <Route component={Error}></Route>
     </Switch>
     </div>
@@ -110,5 +111,13 @@ function App() {
 //allows us to redirect based on certain values passed to the component
 
 
+//NESTED ROUTES
+//useRouteMatch()
+//useRouteMatch helps us define route within a component.
+//suppose we need two routes from /prople . it should look like /people/edit and /people/view
+//now we can extract url and path from the useRouteMatch() using destructuing
+// const {url , path} = useRouteMatch
+//append url to path of Link while Linking
+//append path to path of Route while defining Routes
 
 export default App;
